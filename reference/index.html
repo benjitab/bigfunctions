@@ -1,0 +1,1361 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Supercharge BigQuery with BigFunctions.">
+      
+      
+      
+        <link rel="canonical" href="https://unytics.io/bigfunctions/reference/">
+      
+      <link rel="icon" href="../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+    
+    
+      
+        <title>BigFunctions - BigFunctions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <!-- Link to home -->
+    <a href="https://unytics.io/bigfunctions/" title="BigFunctions" class="md-header__button md-logo" aria-label="BigFunctions">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <a class="md-ellipsis" href="https://unytics.io/bigfunctions/">
+            BigFunctions
+          </a>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BigFunctions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search dialogue -->
+    
+
+    <!-- Repository containing source -->
+    
+      <div class="md-header__source">
+        <a href="https://github.com/unytics/bigfunctions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    unytics/bigfunctions
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      BigFunctions
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../getting_started/" class="md-tabs__link">
+      Getting Started
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BigFunctions" class="md-nav__button md-logo" aria-label="BigFunctions" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    BigFunctions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/unytics/bigfunctions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    unytics/bigfunctions
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BigFunctions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        BigFunctions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    📄 Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore" class="md-nav__link">
+    👀 Explore
+  </a>
+  
+    <nav class="md-nav" aria-label="👀 Explore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore_column" class="md-nav__link">
+    explore_column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore_table" class="md-nav__link">
+    explore_table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore_dataset" class="md-nav__link">
+    explore_dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-string" class="md-nav__link">
+    ✨ Transform string
+  </a>
+  
+    <nav class="md-nav" aria-label="✨ Transform string">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#levenshtein" class="md-nav__link">
+    levenshtein
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render_string" class="md-nav__link">
+    render_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentiment_score" class="md-nav__link">
+    sentiment_score
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-date" class="md-nav__link">
+    📆 Transform date
+  </a>
+  
+    <nav class="md-nav" aria-label="📆 Transform date">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is_public_holiday" class="md-nav__link">
+    is_public_holiday
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph" class="md-nav__link">
+    🌐 Graph
+  </a>
+  
+    <nav class="md-nav" aria-label="🌐 Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connected_components" class="md-nav__link">
+    connected_components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notify" class="md-nav__link">
+    💬 Notify
+  </a>
+  
+    <nav class="md-nav" aria-label="💬 Notify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notify_gmail" class="md-nav__link">
+    notify_gmail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    🚀 Export
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export_to_gmail" class="md-nav__link">
+    export_to_gmail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utils" class="md-nav__link">
+    🔨 Utils
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 Utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chart" class="md-nav__link">
+    chart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_table_columns" class="md-nav__link">
+    get_table_columns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump_to_excel" class="md-nav__link">
+    dump_to_excel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    📄 Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore" class="md-nav__link">
+    👀 Explore
+  </a>
+  
+    <nav class="md-nav" aria-label="👀 Explore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore_column" class="md-nav__link">
+    explore_column
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore_table" class="md-nav__link">
+    explore_table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore_dataset" class="md-nav__link">
+    explore_dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-string" class="md-nav__link">
+    ✨ Transform string
+  </a>
+  
+    <nav class="md-nav" aria-label="✨ Transform string">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#levenshtein" class="md-nav__link">
+    levenshtein
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render_string" class="md-nav__link">
+    render_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentiment_score" class="md-nav__link">
+    sentiment_score
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-date" class="md-nav__link">
+    📆 Transform date
+  </a>
+  
+    <nav class="md-nav" aria-label="📆 Transform date">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is_public_holiday" class="md-nav__link">
+    is_public_holiday
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph" class="md-nav__link">
+    🌐 Graph
+  </a>
+  
+    <nav class="md-nav" aria-label="🌐 Graph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connected_components" class="md-nav__link">
+    connected_components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notify" class="md-nav__link">
+    💬 Notify
+  </a>
+  
+    <nav class="md-nav" aria-label="💬 Notify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notify_gmail" class="md-nav__link">
+    notify_gmail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    🚀 Export
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export_to_gmail" class="md-nav__link">
+    export_to_gmail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utils" class="md-nav__link">
+    🔨 Utils
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 Utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chart" class="md-nav__link">
+    chart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_table_columns" class="md-nav__link">
+    get_table_columns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump_to_excel" class="md-nav__link">
+    dump_to_excel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/unytics/bigfunctions/edit/main/site/content/reference.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>BigFunctions</h1>
+
+<h2 id="overview">📄 Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>BigFunctions are public BigQuery routines that give you <strong>super-SQL-powers</strong> in BigQuery 💪.</p>
+<div class="admonition note">
+<p><strong>👀 Explore</strong></p>
+<ul>
+<li>
+<p><a href="#explore_column"><code>explore_column(fully_qualified_column)</code></a>: Show column statistics</p>
+</li>
+<li>
+<p><a href="#explore_table"><code>explore_table(fully_qualified_table)</code></a>: Show table infos and column statistics</p>
+</li>
+<li>
+<p><a href="#explore_dataset"><code>explore_dataset(fully_qualified_dataset)</code></a>: Shows infos about dataset tables</p>
+</li>
+</ul>
+<p><strong>✨ Transform string</strong></p>
+<ul>
+<li>
+<p><a href="#levenshtein"><code>levenshtein(string1, string2)</code></a>: Computes levenshtein distance between <code>string1</code> and <code>string2</code></p>
+</li>
+<li>
+<p><a href="#render_string"><code>render_string(template, context)</code></a>: Render template with context using nunjucks.js templating library</p>
+</li>
+<li>
+<p><a href="#sentiment_score"><code>sentiment_score(content)</code></a>: Compute sentiment score of text</p>
+</li>
+</ul>
+<p><strong>📆 Transform date</strong></p>
+<ul>
+<li><a href="#is_public_holiday"><code>is_public_holiday(date, country_code)</code></a>: Returns true is <code>date</code> corresponds to a public holiday in <code>country_code</code></li>
+</ul>
+<p><strong>🌐 Graph</strong></p>
+<ul>
+<li><a href="#connected_components"><code>connected_components(fully_qualified_table)</code></a>: Compute the connected components of a non-directed graph.</li>
+</ul>
+<p><strong>💬 Notify</strong></p>
+<ul>
+<li><a href="#notify_gmail"><code>notify_gmail(recipients, subject, body, attachment_filename, attachment_content)</code></a>: Send email via gmail</li>
+</ul>
+<p><strong>🚀 Export</strong></p>
+<ul>
+<li><a href="#export_to_gmail"><code>export_to_gmail(table_or_view_or_query, recipients, email_subject, email_body)</code></a>: Send email (via gmail) with data attached as excel file</li>
+</ul>
+<p><strong>🔨 Utils</strong></p>
+<ul>
+<li>
+<p><a href="#chart"><code>chart(data, chart_type, ylabel)</code></a>: Returns html with a chartjs chart</p>
+</li>
+<li>
+<p><a href="#get_table_columns"><code>get_table_columns(fully_qualified_table)</code></a>: Get the column information of the given table from <code>INFORMATION_SCHEMA.COLUMNS</code> </p>
+</li>
+<li>
+<p><a href="#dump_to_excel"><code>dump_to_excel(data)</code></a>: Dump data to excel file returned as base64</p>
+</li>
+</ul>
+<p><strong>🔴 Before using see --&gt; <a href="/bigfunctions/getting_started/">Getting Started</a></strong></p>
+</div>
+<div style="margin-top: 6rem;"></div>
+
+<h2 id="explore">👀 Explore<a class="headerlink" href="#explore" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p><strong>Explore data within BigQuery console </strong></p>
+<p>Make computations on BigQuery and display the results as data-vizualizations directly in BigQuery console.</p>
+</div>
+<hr />
+<h3 id="explore_column">explore_column<a class="headerlink" href="#explore_column" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/explore_column.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>explore_column(fully_qualified_column)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Show column statistics</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">US</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">call</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">explore_column</span><span class="p">(</span><span class="ss">&quot;bigquery-public-data.samples.natality.weight_pounds&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bigfunction_result</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><a href="../assets/images/explore_column.png"><img alt="screenshot" src="../assets/images/explore_column.png" style="border: var(--md-code-bg-color) solid 1rem; margin-top: -1rem; width: 100%"></a></p>
+<hr />
+<h3 id="explore_table">explore_table<a class="headerlink" href="#explore_table" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/explore_table.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>explore_table(fully_qualified_table)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Show table infos and column statistics</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">US</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">call</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">explore_table</span><span class="p">(</span><span class="ss">&quot;bigquery-public-data.samples.natality&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bigfunction_result</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><a href="../assets/images/explore_column.png"><img alt="screenshot" src="../assets/images/explore_column.png" style="border: var(--md-code-bg-color) solid 1rem; margin-top: -1rem; width: 100%"></a></p>
+<hr />
+<h3 id="explore_dataset">explore_dataset<a class="headerlink" href="#explore_dataset" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/explore_dataset.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>explore_dataset(fully_qualified_dataset)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Shows infos about dataset tables</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">US</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">call</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">explore_dataset</span><span class="p">(</span><span class="ss">&quot;bigquery-public-data.samples&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">select</span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bigfunction_result</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><a href="../assets/images/explore_dataset.png"><img alt="screenshot" src="../assets/images/explore_dataset.png" style="border: var(--md-code-bg-color) solid 1rem; margin-top: -1rem; width: 100%"></a></p>
+<hr />
+<div style="margin-top: 6rem;"></div>
+
+<h2 id="transform-string">✨ Transform string<a class="headerlink" href="#transform-string" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p><strong>Transform data creatively </strong></p>
+<p>Be amazed with your new SQL powers.</p>
+</div>
+<hr />
+<h3 id="levenshtein">levenshtein<a class="headerlink" href="#levenshtein" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/levenshtein.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>levenshtein(string1, string2)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Computes levenshtein distance between <code>string1</code> and <code>string2</code></p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">EU</label><label for="__tabbed_4_2">US</label><label for="__tabbed_4_3">europe-west1</label><label for="__tabbed_4_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">levenshtein</span><span class="p">(</span><span class="s1">&#39;bak&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">distance</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">levenshtein</span><span class="p">(</span><span class="s1">&#39;bak&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">distance</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">levenshtein</span><span class="p">(</span><span class="s1">&#39;bak&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">distance</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">levenshtein</span><span class="p">(</span><span class="s1">&#39;bak&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;book&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">distance</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+----------+
+| distance |
++----------+
+| 2        |
++----------+
+</code>
+</pre>
+
+<hr />
+<h3 id="render_string">render_string<a class="headerlink" href="#render_string" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/render_string.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>render_string(template, context)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Render template with context using nunjucks.js templating library</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">EU</label><label for="__tabbed_5_2">US</label><label for="__tabbed_5_3">europe-west1</label><label for="__tabbed_5_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">render_string</span><span class="p">(</span><span class="s1">&#39;Hello {{ username }}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;username&quot;: &quot;James&quot;}&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rendered_content</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">render_string</span><span class="p">(</span><span class="s1">&#39;Hello {{ username }}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;username&quot;: &quot;James&quot;}&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rendered_content</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">render_string</span><span class="p">(</span><span class="s1">&#39;Hello {{ username }}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;username&quot;: &quot;James&quot;}&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rendered_content</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">render_string</span><span class="p">(</span><span class="s1">&#39;Hello {{ username }}&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;username&quot;: &quot;James&quot;}&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rendered_content</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+------------------+
+| rendered_content |
++------------------+
+| Hello James      |
++------------------+
+</code>
+</pre>
+
+<hr />
+<h3 id="sentiment_score">sentiment_score<a class="headerlink" href="#sentiment_score" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/sentiment_score.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>sentiment_score(content)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Compute sentiment score of text</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">EU</label><label for="__tabbed_6_2">US</label><label for="__tabbed_6_3">europe-west1</label><label for="__tabbed_6_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">sentiment_score</span><span class="p">(</span><span class="s1">&#39;BigFunctions Rock!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">sentiment_score</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">sentiment_score</span><span class="p">(</span><span class="s1">&#39;BigFunctions Rock!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">sentiment_score</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">sentiment_score</span><span class="p">(</span><span class="s1">&#39;BigFunctions Rock!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">sentiment_score</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">sentiment_score</span><span class="p">(</span><span class="s1">&#39;BigFunctions Rock!&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">sentiment_score</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+-----------------+
+| sentiment_score |
++-----------------+
+| 0.945           |
++-----------------+
+</code>
+</pre>
+
+<hr />
+<div style="margin-top: 6rem;"></div>
+
+<h2 id="transform-date">📆 Transform date<a class="headerlink" href="#transform-date" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p><strong>Transform data creatively </strong></p>
+<p>Be amazed with your new SQL powers.</p>
+</div>
+<hr />
+<h3 id="is_public_holiday">is_public_holiday<a class="headerlink" href="#is_public_holiday" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/is_public_holiday.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>is_public_holiday(date, country_code)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Returns true is <code>date</code> corresponds to a public holiday in <code>country_code</code></p>
+<ul>
+<li>Always return <code>false</code> if date is not between year 1974 and year 2076.</li>
+<li><code>country_code</code> must be among <code>[AO, AR, AW, AU, AT, AZ, BD, BY, BE, BO, BW, BR, BG, BI, CA, CL, CN, CO, HR, CU, CW, CY, CZ, DK, DJ, DO, EG, EE, ET, FI, FR, GE, DE, GR, HN, HK, HU, IS, IN, IE, IL, IT, JM, JP, KZ, KE, KR, LV, LS, LT, LU, MG, MW, MY, MT, MX, MD, MA, MZ, NA, NL, NZ, NI, NG, MK, NO, PY, PE, PL, PT, RO, RU, SA, RS, SG, SK, SI, ZA, ES, SZ, SE, CH, TW, TN, TR, UA, AE, GB, US, UY, UZ, VE, VN, ZM, ZW]</code></li>
+<li>Holiday dates come from <a href="https://python-holidays.readthedocs.io/" target="_blank"><code>python-holidays</code></a>.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:4"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">EU</label><label for="__tabbed_7_2">US</label><label for="__tabbed_7_3">europe-west1</label><label for="__tabbed_7_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">is_public_holiday</span><span class="p">(</span><span class="nb">date</span><span class="p">(</span><span class="s1">&#39;2022-07-14&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;FR&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">is_public_holiday</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">is_public_holiday</span><span class="p">(</span><span class="nb">date</span><span class="p">(</span><span class="s1">&#39;2022-07-14&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;FR&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">is_public_holiday</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">is_public_holiday</span><span class="p">(</span><span class="nb">date</span><span class="p">(</span><span class="s1">&#39;2022-07-14&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;FR&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">is_public_holiday</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">is_public_holiday</span><span class="p">(</span><span class="nb">date</span><span class="p">(</span><span class="s1">&#39;2022-07-14&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;FR&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">is_public_holiday</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+-------------------+
+| is_public_holiday |
++-------------------+
+| true              |
++-------------------+
+</code>
+</pre>
+
+<hr />
+<div style="margin-top: 6rem;"></div>
+
+<h2 id="graph">🌐 Graph<a class="headerlink" href="#graph" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p><strong>Graph Algorithms </strong></p>
+<p>No need for neo4j nor spark graphframes --&gt; go BigQuery boosted by BigFunctions!</p>
+</div>
+<hr />
+<h3 id="connected_components">connected_components<a class="headerlink" href="#connected_components" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/connected_components.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>connected_components(fully_qualified_table)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Compute the connected components of a non-directed graph.</p>
+<p>Given a table with two columns of the same type STRING or INTEGER representing the edges of a graph,
+this computes a new temporary table called <code>bigfunction_result</code> containing two columns of the same type 
+named <code>node_id</code> and <code>connected_component_id</code>.</p>
+<p>This is an implementation of the Alternating Algorithm (large-star, small-star) described in the 2014 paper
+"Connected Components in MapReduce and Beyond" written by {rkiveris, silviol, mirrokni, rvibhor, sergeiv} @google.com</p>
+<p>PERFORMANCE AND COST CONSIDERATIONS</p>
+<ul>
+<li>This algorithm has been proved to converge in O(log(n)²) and is conjectured to converge in O(log(n)), where n
+is the number of nodes in the graph. It was the most performant known distributed connected component algorithm
+last time I checked (in 2017).</li>
+<li>This implementation persists temporary results at each iteration loop: for the BigQuery pricing, you should
+be expecting it to cost the equivalent of 15 to 30 scans on your input table. Since the input table has only
+two columns, this should be reasonable, and we recommend using INTEGER columns rather than STRING when possible.</li>
+<li>If your graph contains nodes with a very high number of neighbors, the algorithm may crash. It is recommended
+to apply a pre-filtering on your nodes and remove nodes with a pathologically high cardinality. 
+You should also monitor actively the number of nodes filtered this way and their cardinality, as this could help 
+you detect a data quality deterioration in your input graph.
+If the input graph contains duplicate edges, they will be automatically removed by the algorithm.</li>
+</ul>
+<p>ISOLATED NODES: If you want to have isolated nodes (nodes that have no neighbors)
+in the resulting graph, there is two possible ways to achieve this:</p>
+<ul>
+<li>Add self-loops edges to all your nodes in your input graph (it also works if you add edges between all the graph
+   nodes and a fictitious node with id NULL)</li>
+<li>Only add edges between distinct nodes to your input, and perform a join between your input graph and the
+   algorithm's output to find all the nodes that have disappeared. These will be the isolated nodes.
+   This second method requires a little more work but it should also be cheaper.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">EU</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">call</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">test_connected_components_input_1</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<div style="margin-top: 6rem;"></div>
+
+<h2 id="notify">💬 Notify<a class="headerlink" href="#notify" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p><strong>Send infos to your customers, alert the operations teams, send reportings to business </strong></p>
+<p>Spread the word to the world!</p>
+</div>
+<hr />
+<h3 id="notify_gmail">notify_gmail<a class="headerlink" href="#notify_gmail" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/notify_gmail.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>notify_gmail(recipients, subject, body, attachment_filename, attachment_content)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Send email via gmail</p>
+<p><strong>Examples</strong></p>
+<p><span style="color: var(--md-typeset-a-color);">1. Send email without file attached</span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:4"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">EU</label><label for="__tabbed_9_2">US</label><label for="__tabbed_9_3">europe-west1</label><label for="__tabbed_9_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+---------+
+| success |
++---------+
+| true    |
++---------+
+</code>
+</pre>
+
+<p><span style="color: var(--md-typeset-a-color);">2. Send email with plain text file attached</span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:4"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><input id="__tabbed_10_4" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">EU</label><label for="__tabbed_10_2">US</label><label for="__tabbed_10_3">europe-west1</label><label for="__tabbed_10_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;col1,col2\nval1,val2\nval3,val4&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;col1,col2\nval1,val2\nval3,val4&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;col1,col2\nval1,val2\nval3,val4&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.csv&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;col1,col2\nval1,val2\nval3,val4&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+---------+
+| success |
++---------+
+| true    |
++---------+
+</code>
+</pre>
+
+<p><span style="color: var(--md-typeset-a-color);">3. Send email with excel file attached</span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:4"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><input id="__tabbed_11_4" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">EU</label><label for="__tabbed_11_2">US</label><label for="__tabbed_11_3">europe-west1</label><label for="__tabbed_11_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.xlsx&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;val1&quot;, &quot;col2&quot;: &quot;val2&quot;}, {&quot;col1&quot;: &quot;val3&quot;, &quot;col2&quot;: &quot;val4&quot;}]&#39;</span><span class="p">)))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.xlsx&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;val1&quot;, &quot;col2&quot;: &quot;val2&quot;}, {&quot;col1&quot;: &quot;val3&quot;, &quot;col2&quot;: &quot;val4&quot;}]&#39;</span><span class="p">)))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.xlsx&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;val1&quot;, &quot;col2&quot;: &quot;val2&quot;}, {&quot;col1&quot;: &quot;val3&quot;, &quot;col2&quot;: &quot;val4&quot;}]&#39;</span><span class="p">)))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">notify_gmail</span><span class="p">(</span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;I love BigFunctions&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, could you deploy more BigFunctions 🙏?&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;report.xlsx&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;val1&quot;, &quot;col2&quot;: &quot;val2&quot;}, {&quot;col1&quot;: &quot;val3&quot;, &quot;col2&quot;: &quot;val4&quot;}]&#39;</span><span class="p">)))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">success</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+---------+
+| success |
++---------+
+| true    |
++---------+
+</code>
+</pre>
+
+<hr />
+<div style="margin-top: 6rem;"></div>
+
+<h2 id="export">🚀 Export<a class="headerlink" href="#export" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p><strong>Get the data out to the outside world </strong></p>
+<p>Make BigQuery as the golden source of all your SAAS and for all your usages</p>
+</div>
+<hr />
+<h3 id="export_to_gmail">export_to_gmail<a class="headerlink" href="#export_to_gmail" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/export_to_gmail.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>export_to_gmail(table_or_view_or_query, recipients, email_subject, email_body)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Send email (via gmail) with data attached as excel file</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">EU</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">call</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">export_to_gmail</span><span class="p">(</span><span class="s1">&#39;bigfunctions.samples.natality&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;contact@unytics.io&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Finance Figures for Today&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hey Paul, you fill find the figures in the attached excel file. Enjoy 🔥&#39;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<div style="margin-top: 6rem;"></div>
+
+<h2 id="utils">🔨 Utils<a class="headerlink" href="#utils" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p><strong>Utils BigFunctions </strong></p>
+</div>
+<hr />
+<h3 id="chart">chart<a class="headerlink" href="#chart" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/chart.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>chart(data, chart_type, ylabel)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Returns html with a chartjs chart</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:4"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><input id="__tabbed_13_4" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">EU</label><label for="__tabbed_13_2">US</label><label for="__tabbed_13_3">europe-west1</label><label for="__tabbed_13_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">chart</span><span class="p">([(</span><span class="s1">&#39;2022-08-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-02&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-03&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">40000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-04&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">80000</span><span class="p">.)],</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sales&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">html</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">chart</span><span class="p">([(</span><span class="s1">&#39;2022-08-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-02&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-03&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">40000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-04&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">80000</span><span class="p">.)],</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sales&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">html</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">chart</span><span class="p">([(</span><span class="s1">&#39;2022-08-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-02&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-03&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">40000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-04&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">80000</span><span class="p">.)],</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sales&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">html</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">chart</span><span class="p">([(</span><span class="s1">&#39;2022-08-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-02&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-03&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">40000</span><span class="p">.),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;2022-08-04&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">80000</span><span class="p">.)],</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sales&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">html</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><a href="../assets/images/chart.png"><img alt="screenshot" src="../assets/images/chart.png" style="border: var(--md-code-bg-color) solid 1rem; margin-top: -1rem; width: 100%"></a></p>
+<hr />
+<h3 id="get_table_columns">get_table_columns<a class="headerlink" href="#get_table_columns" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/get_table_columns.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>get_table_columns(fully_qualified_table)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Get the column information of the given table from <code>INFORMATION_SCHEMA.COLUMNS</code> 
+and put them in a temporary table called <code>bigfunction_result</code>.</p>
+<p><strong>Examples</strong></p>
+<p><span style="color: var(--md-typeset-a-color);">1. call <code>bigfunctions.eu._get_columns</code>("bigfunctions.samples.natality");
+select column_name, data_type from bigfunction_result ;
+</span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:1"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">EU</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">call</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">get_table_columns</span><span class="p">(</span><span class="s1">&#39;bigfunctions.samples.natality&#39;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h3 id="dump_to_excel">dump_to_excel<a class="headerlink" href="#dump_to_excel" title="Permanent link">¶</a></h3>
+<div style="position: relative; top: -2rem; margin-bottom:  -2rem; text-align: right; z-index: 9999;"><a href="https://github.com/unytics/bigfunctions/blob/main/bigfunctions/dump_to_excel.yaml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5d6cc0" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
+<div class="highlight"><pre><span></span><code>dump_to_excel(data)
+</code></pre></div>
+<p><strong>Description</strong></p>
+<p>Dump data to excel file returned as base64</p>
+<p><strong>Examples</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:4"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><input id="__tabbed_15_4" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">EU</label><label for="__tabbed_15_2">US</label><label for="__tabbed_15_3">europe-west1</label><label for="__tabbed_15_4">your-region2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">eu</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;row1&quot;, &quot;col2&quot;: 1}, {&quot;col1&quot;: &quot;row2&quot;, &quot;col2&quot;: 2}]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">excel_base64</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">us</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;row1&quot;, &quot;col2&quot;: 1}, {&quot;col1&quot;: &quot;row2&quot;, &quot;col2&quot;: 2}]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">excel_base64</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">europe_west1</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;row1&quot;, &quot;col2&quot;: 1}, {&quot;col1&quot;: &quot;row2&quot;, &quot;col2&quot;: 2}]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">excel_base64</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">bigfunctions</span><span class="p">.</span><span class="n">your_region2</span><span class="p">.</span><span class="n">dump_to_excel</span><span class="p">(</span><span class="s1">&#39;[{&quot;col1&quot;: &quot;row1&quot;, &quot;col2&quot;: 1}, {&quot;col1&quot;: &quot;row2&quot;, &quot;col2&quot;: 2}]&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">excel_base64</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<pre style="margin-top: -1rem;">
+<code style="padding-top: 0px; padding-bottom: 0px;">+------------------+
+| excel_base64     |
++------------------+
+| UEsDBBQAAAAAA... |
++------------------+
+</code>
+</pre>
+
+<hr />
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset" style="background-color: #fff;">
+    <div class="md-footer-meta__inner md-grid" style="background-color: #fff;">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        <img
+          src="https://unytics.io/bigfunctions/assets/logo_and_name.png"
+          alt=""
+          draggable="false"
+          width="300"
+        >
+        
+          <div class="md-footer-copyright__highlight" style="color: rgb(92, 92, 92);">
+            Copyright &copy; 2022 Unytics
+          </div>
+        
+      </div>
+
+      <!-- Social links -->
+      <div class="md-social">
+  
+</div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "content.tabs.link", "instant", "navigation.tabs", "navigation.tracking", "navigation.indexes", "navigation.hide", "navigation.expand"], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.078830c0.min.js"></script>
+      
+    
+  </body>
+</html>
