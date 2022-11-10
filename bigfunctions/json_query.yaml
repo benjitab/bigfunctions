@@ -1,0 +1,24 @@
+type: function_js
+category: JSON
+author:
+  name: "Benjamin Tabet"
+  url: https://www.linkedin.com/in/benjamin-tabet
+  avatar_url: "https://media-exp1.licdn.com/dms/image/C4D03AQGWnyJdEmZeZw/profile-displayphoto-shrink_400_400/0/1667928305931?e=1673481600&v=beta&t=sxH1fFMPjj9ASbqfQ6TkIpWKk_PQ0hUAhOtuAs2zTu0"
+description: "query json using [JMESPath](https://jmespath.org/) library"
+arguments:
+  - name: json_value
+    type: STRING
+output:
+  name: distance
+  type: INT64
+examples:
+  - description: ""
+    arguments:
+      - "'bak'"
+      - "'book'"
+    output: "2"
+    region: ALL
+code: |
+  return js_levenshtein(json_value || '', string2 || '');
+libraries:
+  - jmespath.min.js
